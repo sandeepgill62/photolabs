@@ -17,9 +17,15 @@ const sampleDataForPhotoListItem = {
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
+
+  let photos = [];
+  for (let i = 0; i < 3; i++) {
+    photos.push(<PhotoListItem item={sampleDataForPhotoListItem} key={sampleDataForPhotoListItem.id} />);
+  }
+
   return (
-    <div className="App">
-      <PhotoListItem item={sampleDataForPhotoListItem} key={sampleDataForPhotoListItem.id} />
+    <div className="photo-list">
+      {photos}
     </div>
   );
 };
