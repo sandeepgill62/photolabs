@@ -23,13 +23,23 @@
   object-fit: cover;
 }
 
+// .photo-list__user-profile {
+//   object-fit: cover;
+//   border-radius: 100%;
+//   vertical-align: middle;
+//   margin-right: 8px;
+//   width: 40px;
+//   height: 40px;
+// }
+
+//updated
 .photo-list__user-profile {
   object-fit: cover;
   border-radius: 100%;
   vertical-align: middle;
   margin-right: 8px;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
 }
 
 .photo-list__user-details {
