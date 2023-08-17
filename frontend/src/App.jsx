@@ -1,22 +1,17 @@
 import React from 'react';
 
-//
-
 import './App.scss';
 import HomeRoute from './routes/HomeRoute';
+import photos from "../src/mocks/photos";
+import topics from "../src/mocks/topics.js";
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
 
+  console.log(topics);
   return (
-    // <div>
-    //   <TopicList />
-    //   <div className="photo-list">
-    //     <PhotoList />
-    //   </div>
-    // </div>
     <div className="App">
-      <HomeRoute />
+      <HomeRoute topics={topics} photos={photos} />
     </div>
   );
 };
