@@ -24,7 +24,7 @@ const sampleDataForTopicList = [
 const TopicList = () => {
 
   const topicListItemArray = sampleDataForTopicList.map((topic) =>
-    <div className="topic-list__item" key={topic.id}><TopicListItem topic={topic} /></div>
+    <div key={topic.id}><TopicListItem topic={topic} /></div>
   );
 
   return (
