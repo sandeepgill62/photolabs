@@ -9,6 +9,7 @@ import topics from "../src/mocks/topics.js";
 const App = () => {
 
   const [photoIDs, setPhotoIDs] = useState([]);
+  let isFavPhotoExist = false;
 
   const updateFavouritedPhotoIDs = (id, action) => {
     if (!action) {
@@ -20,6 +21,8 @@ const App = () => {
     }
   };
 
+  { isFavPhotoExist = photoIDs.length ? !isFavPhotoExist : isFavPhotoExist; }
+
   useEffect(() => {
     console.log(photoIDs);
   }, [photoIDs]);
@@ -30,6 +33,7 @@ const App = () => {
         topics={topics}
         photos={photos}
         updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
+        isFavPhotoExist={isFavPhotoExist}
       />
     </div >
   );

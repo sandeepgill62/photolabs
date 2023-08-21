@@ -5,7 +5,7 @@ import TopicList from './TopicList';
 import FavBadge from './FavBadge';
 
 const TopNavigation = (props) => {
-  const { topics } = props;
+  const { topics, isFavPhotoExist } = props;
 
   return (
     <div className="top-nav-bar">
@@ -13,7 +13,7 @@ const TopNavigation = (props) => {
       <TopicList
         topics={topics}
       />
-      <FavBadge />
+      <FavBadge isFavPhotoExist={isFavPhotoExist} />
     </div>
   );
 };
