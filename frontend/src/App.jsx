@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import './App.scss';
 import HomeRoute from './routes/HomeRoute';
+import PhotoDetailsModal from './routes/PhotoDetailsModal';
 import photos from "../src/mocks/photos";
 import topics from "../src/mocks/topics.js";
 
@@ -35,6 +36,7 @@ const App = () => {
         updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
         isFavPhotoExist={isFavPhotoExist}
       />
+      <PhotoDetailsModal />
     </div >
   );
 };
