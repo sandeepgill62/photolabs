@@ -11,6 +11,7 @@ const App = () => {
 
   const [photoIDs, setPhotoIDs] = useState([]);
   let isFavPhotoExist = false;
+  const [model, setModel] = useState(false);
 
   const updateFavouritedPhotoIDs = (id, action) => {
     if (!action) {
@@ -19,6 +20,12 @@ const App = () => {
       setPhotoIDs(oldValues => {
         return oldValues.filter(itemID => itemID !== id);
       });
+    }
+  };
+
+  const photoClick = () => {
+    if (!model) {
+      setModel(true);
     }
   };
 
@@ -35,8 +42,9 @@ const App = () => {
         photos={photos}
         updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
         isFavPhotoExist={isFavPhotoExist}
+        photoClick={photoClick}
       />
-      <PhotoDetailsModal />
+      {model && < PhotoDetailsModal />}
     </div >
   );
 };
