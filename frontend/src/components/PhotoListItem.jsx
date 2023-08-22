@@ -5,7 +5,7 @@ import PhotoFavButton from './PhotoFavButton';
 
 const PhotoListItem = (props) => {
 
-  const { item, updateFavouritedPhotoIDs, setShowModel } = props;
+  const { item, updateFavouritedPhotoIDs, setModelData } = props;
 
   const [selected, setSelected] = useState(false);
 
@@ -25,7 +25,7 @@ const PhotoListItem = (props) => {
         clickOnIcon={clickOnIcon}
         selected={selected}
       />
-      <img className="photo-list__image" onClick={() => setShowModel(true)} src={item.urls.regular} alt="image" />
+      <img className="photo-list__image" onClick={() => setModelData(true, item)} src={item.urls.regular} alt="image" />
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={item.user.profile} alt="" />
         <div>

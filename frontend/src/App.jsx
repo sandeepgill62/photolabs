@@ -10,8 +10,9 @@ import topics from "../src/mocks/topics.js";
 const App = () => {
 
   const [photoIDs, setPhotoIDs] = useState([]);
-  let isFavPhotoExist = false;
   const [showModel, setShowModel] = useState(false);
+  let [modelPhotoData, setModelPhotoData] = useState({});
+  let isFavPhotoExist = false;
 
   const updateFavouritedPhotoIDs = (id, action) => {
     if (!action) {
@@ -21,6 +22,11 @@ const App = () => {
         return oldValues.filter(itemID => itemID !== id);
       });
     }
+  };
+
+  const setModelData = (flag, item) => {
+    setShowModel(flag);
+    setModelPhotoData(item);
   };
 
   { isFavPhotoExist = photoIDs.length ? !isFavPhotoExist : isFavPhotoExist; }
@@ -36,9 +42,15 @@ const App = () => {
         photos={photos}
         updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
         isFavPhotoExist={isFavPhotoExist}
-        setShowModel={setShowModel}
+        setModelData={setModelData}
       />
-      {showModel && < PhotoDetailsModal setShowModel={setShowModel} />}
+      {
+        showModel &&
+        < PhotoDetailsModal
+          setModelData={setModelData}
+          modelPhotoData={modelPhotoData}
+        />
+      }
     </div >
   );
 };
