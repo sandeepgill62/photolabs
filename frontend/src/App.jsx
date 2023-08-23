@@ -11,7 +11,7 @@ const App = () => {
 
   const [photoIDs, setPhotoIDs] = useState([]);
   const [showModel, setShowModel] = useState(false);
-  let [modelPhotoData, setModelPhotoData] = useState({});
+  const [modelPhotoData, setModelPhotoData] = useState({});
   let isFavPhotoExist = false;
 
   const updateFavouritedPhotoIDs = (id, action) => {
@@ -31,9 +31,13 @@ const App = () => {
 
   { isFavPhotoExist = photoIDs.length ? !isFavPhotoExist : isFavPhotoExist; }
 
+  // useEffect(() => {
+  //   console.log(photoIDs);
+  // }, [photoIDs]);
+
   useEffect(() => {
-    console.log(photoIDs);
-  }, [photoIDs]);
+    // console.log(modelPhotoData);
+  }, [modelPhotoData]);
 
   return (
     <div className="App">
@@ -49,6 +53,7 @@ const App = () => {
         < PhotoDetailsModal
           setModelData={setModelData}
           modelPhotoData={modelPhotoData}
+          photos={photos}
         />
       }
     </div >
