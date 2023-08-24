@@ -5,11 +5,21 @@ import '../styles/PhotoFavButton.scss';
 
 const PhotoFavButton = (props) => {
 
-  const { clickOnIcon, selected } = props;
+  // const { clickOnIcon, selected } = props;
 
-  //
+  const { item, updateFavouritedPhotoIDs } = props;
 
-  //
+  const [selected, setSelected] = useState(false);
+
+  const clickOnIcon = () => {
+    if (selected) {
+      setSelected(false);
+      updateFavouritedPhotoIDs(item.id, selected);
+    } else {
+      setSelected(true);
+      updateFavouritedPhotoIDs(item.id, selected);
+    }
+  };
 
   return (
     <div className="photo-list__fav-icon">

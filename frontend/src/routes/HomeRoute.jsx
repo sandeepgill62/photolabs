@@ -5,7 +5,7 @@ import PhotoList from '../components/PhotoList';
 import TopNavigationBar from '../components/TopNavigationBar';
 
 const HomeRoute = (props) => {
-  const { topics, photos, updateFavouritedPhotoIDs, isFavPhotoExist, setShowModel, setModelData } = props;
+  const { topics, photos, updateFavouritedPhotoIDs, isFavPhotoExist, setModelData } = props;
 
   return (
     <div className="home-route">
@@ -17,7 +17,6 @@ const HomeRoute = (props) => {
         <PhotoList
           photos={photos}
           updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
-          setShowModel={setShowModel}
           setModelData={setModelData}
         />
       </div>

@@ -53,7 +53,7 @@ const App = () => {
         < PhotoDetailsModal
           setModelData={setModelData}
           modelPhotoData={modelPhotoData}
-          photos={photos}
+          updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
         />
       }
     </div >
