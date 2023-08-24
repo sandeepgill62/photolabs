@@ -20,12 +20,23 @@ const PhotoDetailsModal = (props) => {
       </button>
 
       <div className="photo-details-modal__images">
-        <PhotoFavButton
-          updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
-          item={item}
-        />
-        <img src={item.urls.regular} className="photo-details-modal__image" alt="main image" />
+        <div className="photo-details-modal__images_and_icon">
+          <PhotoFavButton
+            updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
+            item={item}
+          />
+          <img src={item.urls.regular} className="photo-details-modal__image" alt="main image" />
+        </div>
+        <div className="photo-list__user-details">
+          <img className="photo-list__user-profile" src={item.user.profile} alt="profile photos" />
+          <div >
+            <p className="photo-list__user-info">{item.user.username}</p>
+            <p className="photo-list__user-location">{item.location.city} {item.location.country}</p>
+          </div>
+        </div>
         <h1 className="photo-details-modal__header">Similar Photos</h1>
+
+        {/* check styling name */}
         <div className="photo-details-modal__images">
           <PhotoList
             photos={Object.values(item.similarPhotos)}
