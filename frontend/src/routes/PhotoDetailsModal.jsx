@@ -7,16 +7,16 @@ import PhotoFavButton from '../components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
 
-  const { setModelData, modelPhotoData, updateFavouritedPhotoIDs } = props;
+  const { setModalData, modalPhotoData, updateFavouritedPhotoIDs } = props;
 
-  const item = modelPhotoData;
+  const item = modalPhotoData;
   // console.log(item.similarPhotos);
 
-  console.log(modelPhotoData);
+  console.log(modalPhotoData);
   return (
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button">
-        <img src={closeSymbol} onClick={() => setModelData(false, {})} alt="close symbol" />
+        <img src={closeSymbol} onClick={() => setModalData(false, {})} alt="close symbol" />
       </button>
 
       <div className="photo-details-modal__images">
@@ -40,6 +40,7 @@ const PhotoDetailsModal = (props) => {
         <div className="photo-details-modal__images">
           <PhotoList
             photos={Object.values(item.similarPhotos)}
+            updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
           />
         </div>
       </div>

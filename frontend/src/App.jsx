@@ -1,33 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import './App.scss';
 import HomeRoute from './routes/HomeRoute';
 import PhotoDetailsModal from './routes/PhotoDetailsModal';
 import photos from "../src/mocks/photos";
 import topics from "../src/mocks/topics.js";
+import useApplicationData from 'hooks/useApplicationData';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
 
-  const [photoIDs, setPhotoIDs] = useState([]);
-  const [showModel, setShowModel] = useState(false);
-  const [modelPhotoData, setModelPhotoData] = useState({});
+  const {
+    photoIDs,
+    showModal,
+    modalPhotoData,
+    updateFavouritedPhotoIDs,
+    setModalData
+  } = useApplicationData();
+
   let isFavPhotoExist = false;
-
-  const updateFavouritedPhotoIDs = (id, action) => {
-    if (!action) {
-      setPhotoIDs((prevPhotoIDs) => [...prevPhotoIDs, id]);
-    } else {
-      setPhotoIDs(oldValues => {
-        return oldValues.filter(itemID => itemID !== id);
-      });
-    }
-  };
-
-  const setModelData = (flag, item) => {
-    setShowModel(flag);
-    setModelPhotoData(item);
-  };
 
   { isFavPhotoExist = photoIDs.length ? !isFavPhotoExist : isFavPhotoExist; }
 
@@ -37,7 +28,7 @@ const App = () => {
 
   useEffect(() => {
     // console.log(modelPhotoData);
-  }, [modelPhotoData]);
+  }, [modalPhotoData]);
 
   return (
     <div className="App">
@@ -46,13 +37,13 @@ const App = () => {
         photos={photos}
         updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
         isFavPhotoExist={isFavPhotoExist}
-        setModelData={setModelData}
+        setModalData={setModalData}
       />
       {
-        showModel &&
+        showModal &&
         < PhotoDetailsModal
-          setModelData={setModelData}
-          modelPhotoData={modelPhotoData}
+          setModalData={setModalData}
+          modalPhotoData={modalPhotoData}
           updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
         />
       }
