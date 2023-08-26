@@ -39,11 +39,9 @@ const useApplicationData = () => {
 
   const updateFavouritedPhotoIDs = (id, action) => {
     if (!action) {
-      console.log("add");
       dispatch1({ type: ACTIONS.FAV_PHOTO_ADDED, id: id });
       //setPhotoIDs((prevPhotoIDs) => [...prevPhotoIDs, id]);
     } else {
-      console.log("remove");
       dispatch1({ type: ACTIONS.FAV_PHOTO_REMOVED, id: id });
       // setPhotoIDs((oldValues) => {
       //   return oldValues.filter((itemID) => itemID !== id);
