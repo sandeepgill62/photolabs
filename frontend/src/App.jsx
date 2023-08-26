@@ -7,6 +7,7 @@ import photos from "../src/mocks/photos";
 import topics from "../src/mocks/topics.js";
 import useApplicationData from 'hooks/useApplicationData';
 
+
 // Note: Rendering a single component to build components in isolation
 const App = () => {
 
@@ -15,7 +16,7 @@ const App = () => {
     showModal,
     modalPhotoData,
     updateFavouritedPhotoIDs,
-    setModalData
+    updateModalData
   } = useApplicationData();
 
   let isFavPhotoExist = false;
@@ -37,14 +38,14 @@ const App = () => {
         photos={photos}
         updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
         isFavPhotoExist={isFavPhotoExist}
-        setModalData={setModalData}
+        updateModalData={updateModalData}
       />
       {
         showModal &&
         < PhotoDetailsModal
-          setModalData={setModalData}
           modalPhotoData={modalPhotoData}
           updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
+          updateModalData={updateModalData}
         />
       }
     </div >

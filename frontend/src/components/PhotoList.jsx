@@ -5,14 +5,14 @@ import "../styles/PhotoList.scss";
 
 const PhotoList = (props) => {
 
-  const { photos, updateFavouritedPhotoIDs, setModalData } = props;
+  const { photos, updateFavouritedPhotoIDs, updateModalData } = props;
 
   const photoListItemArray = photos.map((item) =>
     <li key={item.id}>
       <PhotoListItem
         item={item}
         updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
-        setModalData={setModalData}
+        updateModalData={updateModalData}
       />
     </li>
   );

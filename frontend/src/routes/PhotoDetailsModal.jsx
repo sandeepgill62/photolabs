@@ -7,7 +7,7 @@ import PhotoFavButton from '../components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
 
-  const { setModalData, modalPhotoData, updateFavouritedPhotoIDs } = props;
+  const { modalPhotoData, updateFavouritedPhotoIDs, updateModalData } = props;
 
   const item = modalPhotoData;
   // console.log(item.similarPhotos);
@@ -16,7 +16,7 @@ const PhotoDetailsModal = (props) => {
   return (
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button">
-        <img src={closeSymbol} onClick={() => setModalData(false, {})} alt="close symbol" />
+        <img src={closeSymbol} onClick={() => updateModalData(false, {})} alt="close symbol" />
       </button>
 
       <div className="photo-details-modal__images">
