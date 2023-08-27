@@ -55,12 +55,14 @@ const useApplicationData = () => {
     } else {
       dispatch1({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: id });
     }
+
   };
 
-  const updateModalData = (flag, item) => {
-    console.log(flag);
-    console.log(item);
+  useEffect(() => {
+    console.log(photoIDs);
+  }, [photoIDs]);
 
+  const updateModalData = (flag, item) => {
     dispatch2({ type: ACTIONS.SHOW_MODAL, payload: flag });
     dispatch3({ type: ACTIONS.MODAL_PHOTO_DATA, payload: item });
   };
@@ -83,7 +85,6 @@ const useApplicationData = () => {
   }, []);
 
   const updatePhotosByTopics = (flag, topic) => {
-    console.log(topic);
     if (flag) {
       fetch(`/api/topics/photos/${topic.id}`)
       .then(res => res.json())

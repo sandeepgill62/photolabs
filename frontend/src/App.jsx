@@ -23,14 +23,6 @@ const App = () => {
 
   { isFavPhotoExist = photoIDs.length ? !isFavPhotoExist : isFavPhotoExist; }
 
-  // useEffect(() => {
-  //   console.log(photoIDs);
-  // }, [photoIDs]);
-
-  // useEffect(() => {
-  //   console.log(state);
-  // }, [state]);
-
   return (
     <div className="App">
       <HomeRoute
