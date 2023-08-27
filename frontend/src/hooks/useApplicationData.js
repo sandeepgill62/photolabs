@@ -8,6 +8,8 @@ export const ACTIONS = {
   MODAL_PHOTO_DATA: "MODAL_PHOTO_DATA",
   SET_PHOTO_DATA: "SET_PHOTO_DATA",
   SET_TOPIC_DATA: "SET_TOPIC_DATA",
+  GET_PHOTOS_BY_TOPICS: "GET_PHOTOS_BY_TOPICS",
+
   // SELECT_PHOTO: "SELECT_PHOTO",
   // DISPLAY_PHOTO_DETAILS: "DISPLAY_PHOTO_DETAILS",
 };
@@ -26,6 +28,8 @@ const reducer = (state, action) => {
       return { ...state, photoData: action.payload };
     case ACTIONS.SET_TOPIC_DATA:
       return { ...state, topicData: action.payload };
+    case ACTIONS.GET_PHOTOS_BY_TOPICS:
+        return { ...state, photoData: action.payload };
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
@@ -59,13 +63,17 @@ const useApplicationData = () => {
 
     dispatch2({ type: ACTIONS.SHOW_MODAL, payload: flag });
     dispatch3({ type: ACTIONS.MODAL_PHOTO_DATA, payload: item });
-
   };
 
-  useEffect(() => {
+  
+  const fetchAllPhotos = () => {
     fetch('/api/photos')
       .then(res => res.json())
       .then((data) => dispatch4({ type: ACTIONS.SET_PHOTO_DATA, payload: data }));
+  };
+
+  useEffect(() => {
+    fetchAllPhotos();
   }, []);
 
   useEffect(() => {
@@ -74,13 +82,25 @@ const useApplicationData = () => {
       .then((data) => dispatch4({ type: ACTIONS.SET_TOPIC_DATA, payload: data }));
   }, []);
 
+  const updatePhotosByTopics = (flag, topic) => {
+    console.log(topic);
+    if (flag) {
+      fetch(`/api/topics/photos/${topic.id}`)
+      .then(res => res.json())
+      .then((data) => dispatch4({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data }));
+    } else {
+      fetchAllPhotos();
+    }
+  };
+
   return {
     photoIDs,
     showModal,
     modalPhotoData,
     fetchData,
     updateFavouritedPhotoIDs,
-    updateModalData
+    updateModalData,
+    updatePhotosByTopics
   };
 };
 

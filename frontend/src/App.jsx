@@ -15,7 +15,8 @@ const App = () => {
     modalPhotoData,
     fetchData,
     updateFavouritedPhotoIDs,
-    updateModalData
+    updateModalData,
+    updatePhotosByTopics
   } = useApplicationData();
 
   let isFavPhotoExist = false;
@@ -38,6 +39,7 @@ const App = () => {
         updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
         isFavPhotoExist={isFavPhotoExist}
         updateModalData={updateModalData}
+        updatePhotosByTopics={updatePhotosByTopics}
       />
       {
         showModal && modalPhotoData &&
