@@ -5,10 +5,7 @@ import '../styles/PhotoFavButton.scss';
 
 const PhotoFavButton = (props) => {
 
-  // const { clickOnIcon, selected } = props;
-
   const { item, updateFavouritedPhotoIDs } = props;
-
   const [selected, setSelected] = useState(false);
 
   const clickOnIcon = () => {
