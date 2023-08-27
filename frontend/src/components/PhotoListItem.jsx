@@ -3,9 +3,7 @@ import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from './PhotoFavButton';
 
-const PhotoListItem = (props) => {
-
-  const { item, updateFavouritedPhotoIDs, updateModalData } = props;
+const PhotoListItem = ({ item, updateFavouritedPhotoIDs, updateModalData }) => {
 
   return (
     <div className="photo-list__item">

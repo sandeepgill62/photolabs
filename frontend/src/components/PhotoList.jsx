@@ -3,11 +3,9 @@ import React from "react";
 import PhotoListItem from './PhotoListItem';
 import "../styles/PhotoList.scss";
 
-const PhotoList = (props) => {
+const PhotoList = ({ photos, updateFavouritedPhotoIDs, updateModalData }) => {
 
-  const { photos, updateFavouritedPhotoIDs, updateModalData } = props;
-
-  const photoListItemArray = photos.map((item) =>
+  const photoListItemArray = photos ? photos.map((item) =>
     <li key={item.id}>
       <PhotoListItem
         item={item}
@@ -15,7 +13,7 @@ const PhotoList = (props) => {
         updateModalData={updateModalData}
       />
     </li>
-  );
+  ) : null;
 
   return (
     <ul className="photo-list">

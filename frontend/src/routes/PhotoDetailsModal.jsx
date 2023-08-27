@@ -5,9 +5,7 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from '../components/PhotoList';
 import PhotoFavButton from '../components/PhotoFavButton';
 
-const PhotoDetailsModal = (props) => {
-
-  const { modalPhotoData, updateFavouritedPhotoIDs, updateModalData } = props;
+const PhotoDetailsModal = ({ modalPhotoData, updateFavouritedPhotoIDs, updateModalData }) => {
 
   const item = modalPhotoData;
 
@@ -34,7 +32,6 @@ const PhotoDetailsModal = (props) => {
         </div>
         <h1 className="photo-details-modal__header">Similar Photos</h1>
 
-        {/* check styling name */}
         <div className="photo-details-modal__images">
           <PhotoList
             photos={Object.values(item.similar_photos)}

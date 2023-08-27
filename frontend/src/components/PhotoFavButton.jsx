@@ -3,9 +3,8 @@ import React, { useState } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-const PhotoFavButton = (props) => {
+const PhotoFavButton = ({ item, updateFavouritedPhotoIDs }) => {
 
-  const { item, updateFavouritedPhotoIDs } = props;
   const [selected, setSelected] = useState(false);
 
   const clickOnIcon = () => {

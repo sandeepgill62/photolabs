@@ -9,9 +9,6 @@ export const ACTIONS = {
   SET_PHOTO_DATA: "SET_PHOTO_DATA",
   SET_TOPIC_DATA: "SET_TOPIC_DATA",
   GET_PHOTOS_BY_TOPICS: "GET_PHOTOS_BY_TOPICS",
-
-  // SELECT_PHOTO: "SELECT_PHOTO",
-  // DISPLAY_PHOTO_DETAILS: "DISPLAY_PHOTO_DETAILS",
 };
 
 const reducer = (state, action) => {
@@ -58,16 +55,11 @@ const useApplicationData = () => {
 
   };
 
-  useEffect(() => {
-    console.log(photoIDs);
-  }, [photoIDs]);
-
   const updateModalData = (flag, item) => {
     dispatch2({ type: ACTIONS.SHOW_MODAL, payload: flag });
     dispatch3({ type: ACTIONS.MODAL_PHOTO_DATA, payload: item });
   };
 
-  
   const fetchAllPhotos = () => {
     fetch('/api/photos')
       .then(res => res.json())

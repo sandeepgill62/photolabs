@@ -3,10 +3,8 @@ import React from 'react';
 import '../styles/TopNavigationBar.scss';
 import TopicList from './TopicList';
 import FavBadge from './FavBadge';
-// import LiveSearch from './LiveSearch';
 
-const TopNavigation = (props) => {
-  const { topics, isFavPhotoExist, updatePhotosByTopics } = props;
+const TopNavigation = ({ topics, isFavPhotoExist, updatePhotosByTopics }) => {
 
   return (
     <div className="top-nav-bar">
@@ -15,7 +13,6 @@ const TopNavigation = (props) => {
         topics={topics}
         updatePhotosByTopics={updatePhotosByTopics}
       />
-      {/* <LiveSearch /> */}
       <FavBadge isFavPhotoExist={isFavPhotoExist} />
     </div>
   );
