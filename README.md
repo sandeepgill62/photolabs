@@ -3,11 +3,11 @@ The PhotoLabs project for the Web Development React course programming. The Phot
 
 # Photolabs Screenshots
 
-!["Show all photos on logo click"](https://github.com/sandeepgill62/photolabs/blob/master/frontend/src/docs/show_all_photos_with_logo.png?raw=true)
-!["Select topic title 'travel'"](https://github.com/sandeepgill62/photolabs/blob/master/frontend/src/docs/photolabs_topic_travel.png?raw=true)
-!["Select favourite photo"](https://github.com/sandeepgill62/photolabs/blob/master/frontend/src/docs/select_favourite_photo.png?raw=true)
-!["photolabs modal main photo"](https://github.com/sandeepgill62/photolabs/blob/master/frontend/src/docs/photolabs_modal_main_photo.png?raw=true)
-!["photolabs modal simmilar photos"](https://github.com/sandeepgill62/photolabs/blob/master/frontend/src/docs/photolabs_modal_simmilar_photos.png?raw=true)
+!["Show all photos on logo click"](https://github.com/sandeepgill62/photolabs/blob/master/frontend/docs/show_all_photos_with_logo.png?raw=true)
+!["Select topic title 'travel'"](https://github.com/sandeepgill62/photolabs/blob/master/frontend/docs/photolabs_topic_travel.png?raw=true)
+!["Select favourite photo"](https://github.com/sandeepgill62/photolabs/blob/master/frontend/docs/select_favourite_photo.png?raw=true)
+!["photolabs modal main photo"](https://github.com/sandeepgill62/photolabs/blob/master/frontend/docs/photolabs_modal_main_photo.png?raw=true)
+!["photolabs modal simmilar photos"](https://github.com/sandeepgill62/photolabs/blob/master/frontend/docs/photolabs_modal_simmilar_photos.png?raw=true)
 
 
 ## Getting Started
