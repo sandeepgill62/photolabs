@@ -11,7 +11,8 @@ const HomeRoute = (props) => {
     updateFavouritedPhotoIDs,
     isFavPhotoExist,
     updateModalData,
-    updatePhotosByTopics
+    updatePhotosByTopics,
+    photoIDs
   } = props;
 
   return (
@@ -26,6 +27,7 @@ const HomeRoute = (props) => {
           photos={photos}
           updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
           updateModalData={updateModalData}
+          photoIDs={photoIDs}
         />
       </div>
     </div>

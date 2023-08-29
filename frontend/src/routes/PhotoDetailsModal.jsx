@@ -5,7 +5,7 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from '../components/PhotoList';
 import PhotoFavButton from '../components/PhotoFavButton';
 
-const PhotoDetailsModal = ({ modalPhotoData, updateFavouritedPhotoIDs, updateModalData }) => {
+const PhotoDetailsModal = ({ modalPhotoData, updateFavouritedPhotoIDs, updateModalData, photoIDs }) => {
 
   const item = modalPhotoData;
 
@@ -20,6 +20,7 @@ const PhotoDetailsModal = ({ modalPhotoData, updateFavouritedPhotoIDs, updateMod
           <PhotoFavButton
             updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
             item={item}
+            photoIDs={photoIDs}
           />
           <img src={item.urls.regular} className="photo-details-modal__image" alt="main image" />
         </div>
@@ -36,6 +37,7 @@ const PhotoDetailsModal = ({ modalPhotoData, updateFavouritedPhotoIDs, updateMod
           <PhotoList
             photos={Object.values(item.similar_photos)}
             updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
+            photoIDs={photoIDs}
           />
         </div>
       </div>

@@ -26,7 +26,7 @@ const reducer = (state, action) => {
     case ACTIONS.SET_TOPIC_DATA:
       return { ...state, topicData: action.payload };
     case ACTIONS.GET_PHOTOS_BY_TOPICS:
-        return { ...state, photoData: action.payload };
+      return { ...state, photoData: action.payload };
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
@@ -41,29 +41,28 @@ const useApplicationData = () => {
     topicData: []
   };
 
-  const [photoIDs, dispatch1] = useReducer(reducer, []);
-  const [showModal, dispatch2] = useReducer(reducer, false);
-  const [modalPhotoData, dispatch3] = useReducer(reducer, {});
-  const [fetchData, dispatch4] = useReducer(reducer, initialState);
+  const [photoIDs, setPhotoIds] = useReducer(reducer, []);
+  const [showModal, setShowModal] = useReducer(reducer, false);
+  const [modalPhotoData, setModalPhotoData] = useReducer(reducer, {});
+  const [fetchData, setFetchData] = useReducer(reducer, initialState);
 
-  const updateFavouritedPhotoIDs = (id, action) => {
-    if (!action) {
-      dispatch1({ type: ACTIONS.FAV_PHOTO_ADDED, payload: id });
+  const updateFavouritedPhotoIDs = (id) => {
+    if (photoIDs.indexOf(id) < 0) {
+      setPhotoIds({ type: ACTIONS.FAV_PHOTO_ADDED, payload: id });
     } else {
-      dispatch1({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: id });
+      setPhotoIds({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: id });
     }
-
   };
 
   const updateModalData = (flag, item) => {
-    dispatch2({ type: ACTIONS.SHOW_MODAL, payload: flag });
-    dispatch3({ type: ACTIONS.MODAL_PHOTO_DATA, payload: item });
+    setShowModal({ type: ACTIONS.SHOW_MODAL, payload: flag });
+    setModalPhotoData({ type: ACTIONS.MODAL_PHOTO_DATA, payload: item });
   };
 
   const fetchAllPhotos = () => {
     fetch('/api/photos')
       .then(res => res.json())
-      .then((data) => dispatch4({ type: ACTIONS.SET_PHOTO_DATA, payload: data }));
+      .then((data) => setFetchData({ type: ACTIONS.SET_PHOTO_DATA, payload: data }));
   };
 
   useEffect(() => {
@@ -73,14 +72,14 @@ const useApplicationData = () => {
   useEffect(() => {
     fetch('/api/topics')
       .then(res => res.json())
-      .then((data) => dispatch4({ type: ACTIONS.SET_TOPIC_DATA, payload: data }));
+      .then((data) => setFetchData({ type: ACTIONS.SET_TOPIC_DATA, payload: data }));
   }, []);
 
   const updatePhotosByTopics = (flag, topic) => {
     if (flag) {
       fetch(`/api/topics/photos/${topic.id}`)
-      .then(res => res.json())
-      .then((data) => dispatch4({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data }));
+        .then(res => res.json())
+        .then((data) => setFetchData({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data }));
     } else {
       fetchAllPhotos();
     }
